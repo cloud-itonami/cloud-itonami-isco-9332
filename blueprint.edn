@@ -1,0 +1,11 @@
+[{:itonami.blueprint/social-impact [:animal-welfare-integrity :road-safety-continuity :dispatch-logistics-transparency]
+  :itonami.blueprint/domain :logistics/animal-drawn-vehicle-dispatch-and-logistics-coordination
+  :itonami.blueprint/required-technologies [:robotics :identity :audit-ledger]
+  :itonami.blueprint/isco-08 "9332"
+  :itonami.blueprint/name "Animal-drawn Vehicle Dispatch and Logistics Coordination Practice"
+  :itonami.blueprint/governor :cartage-governor
+  :itonami.blueprint/robotics true
+  :db/id -1
+  :itonami.blueprint/status :public-oss
+  :itonami.blueprint/id "cloud-itonami-isco-9332"
+  :itonami.blueprint/license "AGPL-3.0-or-later"}]
