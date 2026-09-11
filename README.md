@@ -42,7 +42,7 @@ wired to a `Dispatch Logistics Advisor` (`cartage.advisor`) and an
 independent `CartageGovernor` (`cartage.governor`), following the
 itonami actor pattern (ADR-2607121000): `:intake -> :advise -> :govern
 -> :decide -+-> :commit (:ok?) +-> :request-approval (:escalate?,
-human-in-the-loop interrupt) +-> :hold (:hard?)`. Run `clojure -M:test`
+human-in-the-loop interrupt) +-> :hold (:hard?)`. Run `kbb -M:test`
 for the current test count.
 
 HARD invariants (always hold, never overridable): driver provenance (a
