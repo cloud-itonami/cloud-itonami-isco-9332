@@ -1,0 +1,36 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:physics` runs it.
+;;
+;; README "Robotics premise": a dispatch-logistics robot performs
+;; trip/fare/animal-condition check-in, driver-roster and route-assignment
+;; scheduling, and vehicle/harness maintenance coordination for animal-drawn
+;; cartage (ISCO 9332). It never drives the cart, never finalizes a route and
+;; never decides animal welfare. The physical work it schedules is the horse-
+;; drawn cart's leg: whether the assigned load can be drawn up the route's
+;; grades within the horse's draft, which is also an animal-welfare signal.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isco-9332"
+ :cases
+ [{:id :cart-up-route-grade
+   :kind :transport
+   :procedure "one draft horse draws a 300 kg cart with a 500 kg load 500 m along a gravel route; route grade varied"
+   :params {:mass-kg 300.0 :payload-kg 500.0 :distance-m 500.0 :v-max-mps 1.5 :a-max-mps2 0.2
+            :brake-decel-mps2 0.5 :drive-force-n 1000.0 :crr 0.03
+            :cog-height-m 1.0 :support-half-length-m 0.8 :max-time-s 3600.0}
+   :sweep {:param :slope-deg :values [0.0 2.0 4.0 5.0 6.0 8.0]}
+   :quantity :cycle-time-s
+   :limit {:max 420.0 :basis "estimate: a 500 m leg at walking pace plus margin; a much slower leg means the horse is at its draft limit"}
+   :boundary {:lo 0.0 :hi 10.0}}
+  {:id :cart-load-on-grade
+   :kind :transport
+   :procedure "the same cart and horse draw an assigned load 500 m up a 3 degree section of the route; load varied"
+   :params {:mass-kg 300.0 :distance-m 500.0 :v-max-mps 1.5 :a-max-mps2 0.2 :slope-deg 3.0
+            :brake-decel-mps2 0.5 :drive-force-n 1000.0 :crr 0.03
+            :cog-height-m 1.0 :support-half-length-m 0.8 :max-time-s 3600.0}
+   :sweep {:param :payload-kg :values [200.0 400.0 600.0 800.0 1000.0]}
+   :quantity :cycle-time-s
+   :limit {:max 420.0 :basis "estimate: same leg-time criterion as the flat-route case"}
+   :boundary {:lo 0.0 :hi 1200.0}}]}
