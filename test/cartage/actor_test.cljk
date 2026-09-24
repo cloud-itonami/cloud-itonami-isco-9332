@@ -1,5 +1,5 @@
 (ns cartage.actor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [cartage.actor :as actor]
             [cartage.advisor :as advisor]
             [cartage.governor :as governor]
