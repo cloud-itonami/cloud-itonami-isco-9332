@@ -1,5 +1,5 @@
 (ns cartage.governor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [cartage.store :as store]
             [cartage.advisor :as advisor]
             [cartage.governor :as governor]))
