@@ -40,7 +40,7 @@
    for schedule-dispatch-operation; :reason/:note for
    flag-welfare-concern; :item/:cost/:vendor for
    coordinate-maintenance-order)}"
-  (:require [clojure.edn :as edn]))
+  (:require [kotoba.lang.edn :as edn]))
 
 (defprotocol Advisor
   (-advise [advisor store request] "request -> proposal map"))
