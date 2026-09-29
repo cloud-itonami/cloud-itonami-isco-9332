@@ -1,7 +1,7 @@
 (ns cartage.store
   "SSoT for the ISCO-08 9332 drivers-of-animal-drawn-vehicles-and-
   machinery dispatch/logistics coordination actor (itonami actor
-  pattern, ADR-2607121000 / CLAUDE.md Actors section; README's
+  pattern, ADR-2607121000 / AGENTS.md Actors section; README's
   'Robotics premise' — a dispatch-logistics robot performs trip/fare/
   animal-condition-check-in data entry, driver-roster and route-
   assignment scheduling, and vehicle/harness maintenance coordination
